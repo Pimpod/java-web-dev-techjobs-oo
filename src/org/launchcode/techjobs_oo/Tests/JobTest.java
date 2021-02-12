@@ -33,8 +33,27 @@ public class JobTest {
         Job test4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job test5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertNotEquals(test4.getId(), test5.getName());
+        assertNotEquals(test4.getId(), test5.getId());
 
+    }
+    @Test
+    public void toStringTest(){
+        Job test6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+
+        assertEquals("ID: " + test6.getId() + "\nName: Product tester" +
+                "\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence\n\n", test6.toString());
+
+    }
+
+    @Test
+    public void emptyFieldTest(){
+        Job test7 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals("ID: " + test7.getId() + "\nName: Data not available" +
+                "\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence\n\n", test7.toString());
     }
 
 }

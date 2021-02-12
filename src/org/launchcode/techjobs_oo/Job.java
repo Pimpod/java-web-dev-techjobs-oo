@@ -13,6 +13,7 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
@@ -92,5 +93,19 @@ public class Job {
 
     public int getId() {
         return id;
+    }
+
+    public String toString(){
+        String[] fields = {this.getName(), this.getEmployer().toString(), this.getLocation().toString(),
+                this.getPositionType().toString(), this.getCoreCompetency().toString()};
+        for (int i = 0; i<fields.length; i++){
+            if (fields[i] == ""){
+                fields[i] = "Data not available";
+            }
+        }
+        String rewrite = "ID: " + this.getId() + "\nName: " + fields[0] +
+                "\nEmployer: " + fields[1] + "\nLocation: " + fields[2] + "\nPosition Type: " + fields[3] +
+                "\nCore Competency: " + fields[4] + "\n\n";
+        return rewrite;
     }
 }
